@@ -12,6 +12,18 @@ func ClearScreen() {
 }
 
 /**
+ * Prints the main menu for the application
+ *
+ * @return void
+ */
+func DisplayMenu() {
+  fmt.Println("=== MODOL - Modular Online Learning ===")
+  fmt.Println("| 1. Start Learning                   |")
+  fmt.Println("| 2. Exit                             |")
+  fmt.Println("========================================")
+}
+
+/**
  * Prints the confirmation screen with the given messages
  *
  * @return void
