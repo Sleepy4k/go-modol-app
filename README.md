@@ -7,7 +7,7 @@ The application is built using the Go programming language for efficiency and hi
 
 ## Overview
 
-### Antarmuka
+### Interface
 
 - This application is designed to be Console Line Interface (CLI)
 - User can access and use the application easily
