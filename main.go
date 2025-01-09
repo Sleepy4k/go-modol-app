@@ -68,7 +68,7 @@ func main() {
 
   for isRunning := false; !isRunning; {
     helpers.ClearScreen()
-    helpers.DisplayMainMenu()
+    helpers.DisplayMainMenu(auth.CurrentUser.Nama)
 
     for choice < 1 || choice > 5 {
       fmt.Print("Masukan pilihan anda: ")
@@ -77,11 +77,11 @@ func main() {
 
     switch choice {
     case 1:
-      fmt.Println("Starting learning...")
+      ctrls.HomeController{}.Index()
     case 2:
-      fmt.Println("Starting classes...")
+      ctrls.ClassController{}.Index()
     case 3:
-      fmt.Println("Starting grades...")
+      ctrls.GradeController{}.Index()
     case 4:
       ctrls.SettingController{}.Index()
     case 5:
