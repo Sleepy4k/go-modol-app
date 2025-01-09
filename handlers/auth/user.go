@@ -16,22 +16,16 @@ var CurrentUser *user.User
   * @param string password
   * @return *user.User
   */
-func Authentic(NIM string, password string) *user.User {
+func Authentic(NIM string, password string) {
   userData := user.FindUserByNIM(NIM)
 
   if userData == nil || userData.ID == 0 {
     fmt.Println("User tidak ditemukan")
-    return &user.User{}
-  }
-
-  if !helpers.VerifyPassword(password, userData.Password) {
+  } else if !helpers.VerifyPassword(password, userData.Password) {
     fmt.Println("Password salah")
-    return &user.User{}
+  } else {
+    CurrentUser = userData
   }
-
-  CurrentUser = userData
-
-  return userData
 }
 
 /**
