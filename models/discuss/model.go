@@ -188,12 +188,39 @@ func FindDiscussByID(ID int) *Discuss {
 }
 
 /**
+  * Updates a discuss by their ID using sequential search
+  *
+  * @param int ID
+  * @param Discuss data
+  * @return void
+  */
+func UpdateDiscussionByID(ID int, data Discuss) {
+  for i := 0; i < len(Discusses); i++ {
+    if Discusses[i].ID == ID {
+      Discusses[i].Content = data.Content
+    }
+  }
+
+  content, err := helpers.SaveToJSON(Discusses)
+
+  if err != nil {
+    panic(err)
+  }
+
+  err = helpers.UpdateFile("discusses.json", content)
+
+  if err != nil {
+    panic(err)
+  }
+}
+
+/**
   * Deletes a discuss by their ID using sequential search
   *
   * @param int ID
   * @return void
   */
-func DeleteDiscuss(ID int) {
+func DeleteDiscussById(ID int) {
   var newDiscusses []Discuss
 
   for i := 0; i < len(Discusses); i++ {

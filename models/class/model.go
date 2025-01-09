@@ -162,6 +162,33 @@ func FindClassByID(ID int) *Class {
 }
 
 /**
+  * Updates a class by their ID using sequential search
+  *
+  * @param int ID
+  * @param Class data
+  * @return void
+  */
+func UpdateClass(ID int, data Class) {
+  for i := 0; i < len(Classes); i++ {
+    if Classes[i].ID == ID {
+      Classes[i].Nama = data.Nama
+    }
+  }
+
+  content, err := helpers.SaveToJSON(Classes)
+
+  if err != nil {
+    panic(err)
+  }
+
+  err = helpers.UpdateFile("classes.json", content)
+
+  if err != nil {
+    panic(err)
+  }
+}
+
+/**
   * Deletes a class by their ID using sequential search
   *
   * @param int ID

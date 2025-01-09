@@ -187,7 +187,7 @@ func InsertAssignment(assignment Assignment) {
     panic(err)
   }
 
-  err = helpers.SaveFile("assignments.json", content)
+  err = helpers.UpdateFile("assignments.json", content)
 
   if err != nil {
     panic(err)
@@ -284,7 +284,7 @@ func DeleteAssignment(ID int) {
     panic(err)
   }
 
-  err = helpers.SaveFile("assignments.json", content)
+  err = helpers.UpdateFile("assignments.json", content)
 
   if err != nil {
     panic(err)

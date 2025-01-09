@@ -137,7 +137,7 @@ func InsertSubject(subject Subject) {
     panic(err)
   }
 
-  err = helpers.SaveFile("subjects.json", content)
+  err = helpers.UpdateFile("subjects.json", content)
 
   if err != nil {
     panic(err)

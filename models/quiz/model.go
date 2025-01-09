@@ -137,7 +137,7 @@ func InsertQuiz(quiz Quiz) Quiz {
     panic(err)
   }
 
-  err = helpers.SaveFile("quizzes.json", content)
+  err = helpers.UpdateFile("quizzes.json", content)
 
   if err != nil {
     panic(err)
@@ -149,12 +149,13 @@ func InsertQuiz(quiz Quiz) Quiz {
 /**
   * Updates a quiz
   *
+  * @param int ID
   * @param Quiz quiz
   * @return Quiz
   */
-func UpdateQuiz(quiz Quiz) Quiz {
+func UpdateQuizByID(ID int, quiz Quiz) Quiz {
   for i, q := range Quizzes {
-    if q.ID == quiz.ID {
+    if q.ID == ID {
       Quizzes[i] = quiz
     }
   }
@@ -165,7 +166,7 @@ func UpdateQuiz(quiz Quiz) Quiz {
     panic(err)
   }
 
-  err = helpers.SaveFile("quizzes.json", content)
+  err = helpers.UpdateFile("quizzes.json", content)
 
   if err != nil {
     panic(err)
@@ -197,7 +198,7 @@ func DeleteQuizByID(quizID int) {
     panic(err)
   }
 
-  err = helpers.SaveFile("quizzes.json", content)
+  err = helpers.UpdateFile("quizzes.json", content)
 
   if err != nil {
     panic(err)

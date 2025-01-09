@@ -141,7 +141,7 @@ func InsertQuizQuestion(quizQuestion QuizQuestion) {
     panic(err)
   }
 
-  err = helpers.SaveFile("quiz_questions.json", content)
+  err = helpers.UpdateFile("quiz_questions.json", content)
 
   if err != nil {
     panic(err)
@@ -171,7 +171,7 @@ func DeleteQuizQuestionByID(quizQuestionID int) {
     panic(err)
   }
 
-  err = helpers.SaveFile("quiz_questions.json", content)
+  err = helpers.UpdateFile("quiz_questions.json", content)
 
   if err != nil {
     panic(err)
