@@ -55,22 +55,47 @@ func init() {
 }
 
 /**
+  * Creates a new ID using insertion sort
+  *
+  * @return int
+  */
+func CreateNewID() int {
+  LENGTH := len(Classes)
+
+  for i := 1; i < LENGTH; i++ {
+    key := Classes[i]
+    j := i - 1
+
+    for j >= 0 && Classes[j].ID > key.ID {
+      Classes[j + 1] = Classes[j]
+      j = j - 1
+    }
+
+    Classes[j + 1] = key
+  }
+
+  return Classes[LENGTH - 1].ID + 1
+}
+
+/**
   * Lists all classes with selection sort
   *
   * @param enums.SORT sortType
   * @return []Class
   */
 func ListClasses(sortType enums.SORT) []Class {
-  for i := 0; i < len(Classes); i++ {
+  LENGTH := len(Classes)
+
+  for i := 0; i < LENGTH; i++ {
     min := i
 
-    for j := i + 1; j < len(Classes); j++ {
+    for j := i + 1; j < LENGTH; j++ {
       if sortType == enums.ASC {
-        if Classes[j].ID < Classes[min].ID {
+        if Classes[j].Nama < Classes[min].Nama {
           min = j
         }
       } else {
-        if Classes[j].ID > Classes[min].ID {
+        if Classes[j].Nama > Classes[min].Nama {
           min = j
         }
       }
@@ -89,7 +114,7 @@ func ListClasses(sortType enums.SORT) []Class {
   * @return void
   */
 func InsertClass(class Class) {
-  class.ID = len(Classes) + 1
+  class.ID = CreateNewID()
   Classes = append(Classes, class)
 
   content, err := helpers.SaveToJSON(Classes)
@@ -106,30 +131,30 @@ func InsertClass(class Class) {
 }
 
 /**
-  * Finds a user by their ID
+  * Finds a class by their ID using binary search
   *
   * @param string ID
   * @return *Class
   */
-func FindUserByID(ID int) *Class {
+func FindClassByID(ID int) *Class {
   if ID < 1 {
     return &Class{}
   }
 
-  low := 0
-  high := len(Classes) - 1
+  left := 0
+  right := len(Classes) - 1
 
-  for low <= high {
-    mid := (low + high) / 2
+  for left <= right {
+    mid := left + (right - left) / 2
 
     if Classes[mid].ID == ID {
       return &Classes[mid]
     }
 
     if Classes[mid].ID < ID {
-      low = mid + 1
+      left = mid + 1
     } else {
-      high = mid - 1
+      right = mid - 1
     }
   }
 
@@ -137,7 +162,7 @@ func FindUserByID(ID int) *Class {
 }
 
 /**
-  * Deletes a class by their ID
+  * Deletes a class by their ID using sequential search
   *
   * @param int ID
   * @return void
