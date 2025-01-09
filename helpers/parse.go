@@ -1,6 +1,9 @@
 package helpers
 
-import "encoding/json"
+import (
+  "strings"
+  "encoding/json"
+)
 
 /**
   * Loads a JSON file into a struct
@@ -22,4 +25,24 @@ func LoadFromJSON(content []byte, v interface{}) error {
   */
 func SaveToJSON(v interface{}) ([]byte, error) {
   return json.Marshal(v)
+}
+
+/**
+  * Make word to uppercase level
+  *
+  * @param string word
+  * @return string
+  */
+func ToUpper(word string) string {
+  return strings.ToUpper(word)
+}
+
+/**
+  * Make word to lowercase level
+  *
+  * @param string word
+  * @return string
+  */
+func ToLower(word string) string {
+  return strings.ToLower(word)
 }
