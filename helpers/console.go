@@ -28,33 +28,6 @@ func DisplayAuthMenu() {
 }
 
 /**
-  * Prints the setting menu for the application
-  *
-  * @return void
-  */
-func DisplaySettingMenu() {
-  fmt.Println("============= Pengaturan ============")
-  fmt.Println("1. Profil")
-  fmt.Println("2. Kelola Kelas")
-  fmt.Println("3. Kembali")
-  fmt.Println("=======================================")
-}
-
-/**
-  * Prints the manage class menu for the application
-  *
-  * @return void
-  */
-func DisplayManageClassMenu() {
-  fmt.Println("============ Kelola Kelas ============")
-  fmt.Println("1. Lihat Kelas")
-  fmt.Println("2. Tambah Kelas")
-  fmt.Println("3. Hapus Kelas")
-  fmt.Println("4. Kembali")
-  fmt.Println("=======================================")
-}
-
-/**
   * Prints the home menu for the application
   *
   * @return void
@@ -105,6 +78,82 @@ func DisplayGradeMenu() {
   fmt.Println("================ Nilai ================")
   fmt.Println("1. List Nilai")
   fmt.Println("2. Kembali")
+  fmt.Println("=======================================")
+}
+
+/**
+  * Prints the setting menu for the application
+  *
+  * @return void
+  */
+func DisplaySettingMenu() {
+  fmt.Println("============= Pengaturan ============")
+  fmt.Println("1. Profil")
+  fmt.Println("2. Kelola Kelas")
+  fmt.Println("3. Kelola Tugas")
+  fmt.Println("4. Kelola Kuis")
+  fmt.Println("5. Kelola Diskusi")
+  fmt.Println("6. Kembali")
+  fmt.Println("=======================================")
+}
+
+/**
+  * Prints the manage class menu for the application
+  *
+  * @return void
+  */
+func DisplayManageClassMenu() {
+  fmt.Println("============ Kelola Kelas ============")
+  fmt.Println("1. Lihat Kelas")
+  fmt.Println("2. Tambah Kelas")
+  fmt.Println("3. Edit Kelas")
+  fmt.Println("4. Hapus Kelas")
+  fmt.Println("5. Kembali")
+  fmt.Println("=======================================")
+}
+
+/**
+  * Prints the manage assignment menu for the application
+  *
+  * @return void
+  */
+func DisplayManageAssignmentMenu() {
+  fmt.Println("========= Kelola Tugas =========")
+  fmt.Println("1. Lihat Tugas")
+  fmt.Println("2. Tambah Tugas")
+  fmt.Println("3. Edit Tugas")
+  fmt.Println("4. Hapus Tugas")
+  fmt.Println("5. Kembali")
+  fmt.Println("=======================================")
+}
+
+/**
+  * Prints the manage quiz menu for the application
+  *
+  * @return void
+  */
+func DisplayManageQuizMenu() {
+  fmt.Println("========= Kelola Kuis =========")
+  fmt.Println("1. Lihat Kuis")
+  fmt.Println("2. Tambah Kuis")
+  fmt.Println("3. Edit Kuis")
+  fmt.Println("4. Hapus Kuis")
+  fmt.Println("5. Kembali")
+  fmt.Println("=======================================")
+}
+
+/**
+  * Prints the manage discussion menu for the application
+  *
+  * @return void
+  */
+func DisplayManageDiscussionMenu() {
+  fmt.Println("========= Kelola Diskusi =========")
+  fmt.Println("1. Lihat Diskusi")
+  fmt.Println("2. Tambah Diskusi")
+  fmt.Println("3. Edit Diskusi")
+  fmt.Println("4. Hapus Diskusi")
+  fmt.Println("5. Kembali")
   fmt.Println("=======================================")
 }
 
