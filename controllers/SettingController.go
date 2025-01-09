@@ -84,23 +84,28 @@ func (sc SettingController) ManageClass() {
       fmt.Scanln(&choice)
     }
 
+    helpers.ClearScreen()
+
     switch choice {
     case 1:
       sortType := enums.ASC
+      var choice int
 
       fmt.Println("1. Urutkan berdasarkan nama (A-Z)")
       fmt.Println("2. Urutkan berdasarkan nama (Z-A)")
 
-      for sortType < 1 || sortType > 2 {
+      for choice < 1 || choice > 2 {
         fmt.Print("Masukan pilihan anda: ")
-        fmt.Scanln(&sortType)
+        fmt.Scanln(&choice)
       }
 
-      if sortType == 2 {
+      if choice == 2 {
         sortType = enums.DESC
       }
 
       clasess := class.ListClasses(sortType)
+
+      helpers.ClearScreen()
 
       fmt.Println("=== Daftar Kelas ===")
       for _, class := range clasess {
